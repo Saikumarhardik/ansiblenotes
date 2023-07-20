@@ -1,0 +1,13 @@
+- name : creating a file in webservers
+  hosts: [webservers]
+  become: yes
+
+  tasks:
+    - name: creating a file
+      file:
+        path:  /home/ubuntu/
+        state:  touch
+
+    - name: using command module
+        command:
+          cmd: "ls"
