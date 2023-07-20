@@ -5,7 +5,9 @@
   tasks:
     - name: creating a file
       file:
-        path:  /home/ubuntu/qwerty.txt
+        path:  /home/ubuntu/qwe.txt
         state:  touch
 
-
+    - name: using command module
+      command:
+        cmd: "ls"
