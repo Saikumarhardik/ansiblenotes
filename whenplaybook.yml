@@ -6,7 +6,7 @@
     - name: installing httpd in centos
       yum:
         name: httpd
-        state: present
+        state: "present"
       when: ansible_distribution == "CentOs"
 
     - name: installing apache2 in ubuntu
