@@ -7,7 +7,7 @@
       yum:
         name: httpd
         state: "present"
-      when: ansible_distribution == "CentOs"
+      when: ansible_distribution == "CentOS"
 
     - name: installing apache2 in ubuntu
       apt:
