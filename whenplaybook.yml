@@ -1,1 +1,15 @@
+- name: creating playbooks using conditions
+  hosts: webserverss
+  become: yes
+
+  tasks:
+    - name: installing apache2 in ubuntu
+      apt:
+        name: apache2
+        state: "latest"
+
+    - name: installing httpd in centos
+      apt:
+        name: httpd
+        state: "latest"
 
