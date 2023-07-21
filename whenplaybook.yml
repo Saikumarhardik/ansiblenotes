@@ -13,5 +13,5 @@
     - name: installing httpd in centos
       yum:
         name: httpd
-        state: "present"
-      when: ansible_distribution=="CentOs"
+        state: present
+      when: ansible_distribution == "CentOs"
