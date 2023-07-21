@@ -8,9 +8,10 @@
         name: apache2
         update_cache: true
         state: "latest"
+      when: ansible_distribution=="Ubuntu"
 
     - name: installing httpd in centos
       apt:
         name: httpd
         state: "latest"
-
+      when: ansible_distribution=="CentOs"
