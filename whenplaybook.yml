@@ -11,7 +11,7 @@
       when: ansible_distribution=="Ubuntu"
 
     - name: installing httpd in centos
-      apt:
+      yum:
         name: httpd
         state: "latest"
       when: ansible_distribution=="CentOs"
