@@ -1,0 +1,21 @@
+-  name: multistaged yml file with conditions and interpolation
+   hosts: all
+   become: yes 
+
+   tasks:
+     - name: installing apache2 in ubuntu
+       apt:
+         name: apache2
+         update_cache: true
+         state: present
+       when:  ansible_distribution=="Ubuntu"
+
+     - name: installing httpd in centos7
+       yum:
+         name: httpd
+         state: present
+       when:  ansible_distribution=="CentOS"
+       
+     
+      
+
