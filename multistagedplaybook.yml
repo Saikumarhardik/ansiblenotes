@@ -49,6 +49,8 @@
        when:  ansible_distribution=="CentOS"
        notify:
          - restarting httpd server in centos
+       tags:
+         - changing portnumber
 
      - name: enabling selinix
        selinux:
