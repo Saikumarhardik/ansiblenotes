@@ -1,6 +1,8 @@
 -  name: multistaged yml file with conditions and interpolation
    hosts: all
    become: yes 
+   vars:
+     user: saikumar
 
    tasks:
      - name: installing apache2 in ubuntu
@@ -21,6 +23,13 @@
          name: httpd
          state: started
        when:  ansible_distribution=="CentOS"
+
+     - name: configuring html file
+       template:
+         src: /home/ubuntu/test.j2
+         dest: /var/www/html/test.html
+       when: ansible_distribution=="Ubuntu"
+
 
 
      
