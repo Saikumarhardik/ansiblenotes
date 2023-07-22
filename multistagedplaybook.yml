@@ -3,6 +3,7 @@
    become: yes 
    vars:
      user: saikumar
+     port_number: 100
 
    tasks:
      - name: installing apache2 in ubuntu
@@ -28,7 +29,14 @@
        template:
          src: /home/ubuntu/test.j2
          dest: /var/www/html/test.html
-       when: ansible_distribution=="Ubuntu"
+       
+     - name: changing port number
+       template:
+         src: /home/ubuntu/httpd.j2
+         dest: /etc/httpd/conf/httpd.conf
+       when:  ansible_distribution=="CentOS"
+
+       
 
 
 
