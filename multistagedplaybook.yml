@@ -19,11 +19,6 @@
          state: present
        when:  ansible_distribution=="CentOS"
 
-     - name: starting httpd server in centos
-       service:
-         name: httpd
-         state: started
-       when:  ansible_distribution=="CentOS"
 
      - name: configuring html file
        template:
@@ -36,10 +31,18 @@
          dest: /etc/httpd/conf/httpd.conf
        when:  ansible_distribution=="CentOS"
 
+     - name: enabling selinix
+       selinux:
+         policy: targeted
+         state: permissive
+       when:  ansible_distribution=="CentOS"
+      
+       
+
      - name: starting httpd server in centos
        service:
          name: httpd
-         state: restarted
+         state: started
        when:  ansible_distribution=="CentOS"
 
        
