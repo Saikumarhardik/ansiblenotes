@@ -1,2 +1,4 @@
 ---
 # vars file for my_role
+user: saikumar
+port_number: 101

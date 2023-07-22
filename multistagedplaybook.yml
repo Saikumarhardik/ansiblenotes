@@ -1,64 +1,8 @@
 -  name: multistaged yml file with conditions and interpolation
    hosts: all
    become: yes 
-   vars:
-     user: saikumar
-     port_number: 101
-
-   handlers:
-     - name: restarting httpd server in centos
-       service:
-         name: httpd
-         state: restarted
-       when:  ansible_distribution=="CentOS"
-     
-
-   tasks:
-     - name: installing apache2 in ubuntu
-       apt:
-         name: apache2
-         update_cache: true
-         state: present
-       when:  ansible_distribution=="Ubuntu"
-
-     - name: installing httpd in centos7
-       yum:
-         name: httpd
-         state: present
-       when:  ansible_distribution=="CentOS"
-
-        
-
-     - name: starting httpd server in centos
-       service:
-         name: httpd
-         state: started
-       when:  ansible_distribution=="CentOS"
-
-
-
-     - name: configuring html file
-       template:
-         src: /home/ubuntu/test.j2
-         dest: /var/www/html/test.html
-       
-     - name: changing port number
-       template:
-         src: /home/ubuntu/httpd.j2
-         dest: /etc/httpd/conf/httpd.conf
-       when:  ansible_distribution=="CentOS"
-       notify:
-         - restarting httpd server in centos
-       tags:
-         - changing portnumber
-
-     - name: enabling selinix
-       selinux:
-         policy: targeted
-         state: permissive
-       when:  ansible_distribution=="CentOS"
-      
-       
+   roles:
+     - my_role
 
 
        

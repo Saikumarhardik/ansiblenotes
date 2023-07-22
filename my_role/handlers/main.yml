@@ -1,2 +1,7 @@
 ---
 # handlers file for my_role
+- name: restarting httpd server in centos
+  service:
+    name: httpd
+    state: restarted
+  when:  ansible_distribution=="CentOS"
