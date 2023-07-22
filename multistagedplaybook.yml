@@ -5,6 +5,14 @@
      user: saikumar
      port_number: 101
 
+   handlers:
+     - name: restarting httpd server in centos
+       service:
+         name: httpd
+         state: restarted
+       when:  ansible_distribution=="CentOS"
+     
+
    tasks:
      - name: installing apache2 in ubuntu
        apt:
@@ -39,6 +47,8 @@
          src: /home/ubuntu/httpd.j2
          dest: /etc/httpd/conf/httpd.conf
        when:  ansible_distribution=="CentOS"
+       notify:
+         - restarting httpd server in centos
 
      - name: enabling selinix
        selinux:
@@ -48,11 +58,6 @@
       
        
 
-     - name: restarting httpd server in centos
-       service:
-         name: httpd
-         state: restarted
-       when:  ansible_distribution=="CentOS"
 
        
 
