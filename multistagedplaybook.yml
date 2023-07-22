@@ -22,7 +22,7 @@
      - name: starting httpd server in centos
        service:
          name: httpd
-         state: restarted
+         state: started
        when:  ansible_distribution=="CentOS"
 
      - name: configuring html file
@@ -34,6 +34,12 @@
        template:
          src: /home/ubuntu/httpd.j2
          dest: /etc/httpd/conf/httpd.conf
+       when:  ansible_distribution=="CentOS"
+
+     - name: starting httpd server in centos
+       service:
+         name: httpd
+         state: restarted
        when:  ansible_distribution=="CentOS"
 
        
