@@ -19,6 +19,15 @@
          state: present
        when:  ansible_distribution=="CentOS"
 
+        
+
+     - name: starting httpd server in centos
+       service:
+         name: httpd
+         state: started
+       when:  ansible_distribution=="CentOS"
+
+
 
      - name: configuring html file
        template:
@@ -42,7 +51,7 @@
      - name: starting httpd server in centos
        service:
          name: httpd
-         state: started
+         state: restarted
        when:  ansible_distribution=="CentOS"
 
        
