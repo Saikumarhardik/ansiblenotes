@@ -22,7 +22,7 @@
      - name: starting httpd server in centos
        service:
          name: httpd
-         state: started
+         state: restarted
        when:  ansible_distribution=="CentOS"
 
      - name: configuring html file
