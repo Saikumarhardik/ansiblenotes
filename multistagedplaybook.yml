@@ -48,7 +48,7 @@
       
        
 
-     - name: starting httpd server in centos
+     - name: restarting httpd server in centos
        service:
          name: httpd
          state: restarted
