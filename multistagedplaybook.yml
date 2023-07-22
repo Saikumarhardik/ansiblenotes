@@ -3,7 +3,7 @@
    become: yes 
    vars:
      user: saikumar
-     port_number: 100
+     port_number: 101
 
    tasks:
      - name: installing apache2 in ubuntu
