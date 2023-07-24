@@ -29,7 +29,7 @@
 
         
 
-     - name: starting httpd server in centos
+     - name: starting httpd server in centos machine
        service:
          name: httpd
          state: started
