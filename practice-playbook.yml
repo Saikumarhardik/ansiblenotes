@@ -11,8 +11,6 @@
        when: ansible_distribution=="CentOS"
         
    tasks:
-     
-      
      - name: installing apache2 in ununtu machine
        apt:
          name: apache2
@@ -29,10 +27,14 @@
 
 
      - name: transfering the files 
-        template:
-          src: /home/ubuntu/test.j2
-          dest: /var/www/html/test.html
+       template:
+         
+         src: /home/ubuntu/test.j2
+         dest: /var/www/html/test.html
 
 
+     
+      
+     
       
      
