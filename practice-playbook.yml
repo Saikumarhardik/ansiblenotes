@@ -3,13 +3,15 @@
    become: yes
 
    handlers:
+     
      - name : starting httpd in centos
        service:
          name: httpd
          state: started
        when: ansible_distribution=="CentOS"
         
-    tasks: 
+    tasks:
+      
      - name: installing apache2 in ununtu machine
        apt:
          name: apache2
@@ -25,8 +27,11 @@
          - starting httpd in centos
 
 
-      - name: transfering the files 
+     - name: transfering the files 
         template:
           src: /home/ubuntu/test.j2
           dest: /var/www/html/test.html
 
+
+      
+     
