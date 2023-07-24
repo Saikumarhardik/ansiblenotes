@@ -1,6 +1,8 @@
 -  name: creating a full fledged playbook
    hosts: all
    become: yes
+   vars:
+     user: saikumar
 
    handlers:
      
