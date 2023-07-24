@@ -10,7 +10,8 @@
          state: started
        when: ansible_distribution=="CentOS"
         
-    tasks:
+   tasks:
+     
       
      - name: installing apache2 in ununtu machine
        apt:
