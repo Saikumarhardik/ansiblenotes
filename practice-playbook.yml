@@ -1,0 +1,17 @@
+-  name: creating a full fledged playbook
+   hosts: all
+   become: yes
+  
+
+   tasks: 
+     - name: installing apache2 in ununtu machine
+       apt:
+         name: apache2
+         state: present
+       when: ansible_distribution=="Ubuntu"
+
+     - name: installing httpd in centos7 machine
+       yum:
+         name : httpd
+         state: present 
+       when: ansible_distribution=="CentOS"
