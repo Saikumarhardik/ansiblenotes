@@ -15,3 +15,11 @@
          name : httpd
          state: present 
        when: ansible_distribution=="CentOS"
+
+     - name : starting httpd in centos
+       service:
+         name: httpd
+         state: started
+       when: ansible_distribution=="CentOS"
+        
+
